@@ -110,7 +110,9 @@ class QuranView extends StatelessWidget {
               itemCount: suraName.length,
               itemBuilder: (context, index) => InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, QuranDetailsView.routeName);
+                      Navigator.pushNamed(context, QuranDetailsView.routeName,
+                          arguments: SuraTitleWidget(
+                              name: suraName[index], number: "${index + 1}"));
                     },
                     child: SuraTitleWidget(
                         name: suraName[index], number: "${index + 1}"),
