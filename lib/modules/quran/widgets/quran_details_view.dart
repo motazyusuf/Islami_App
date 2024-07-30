@@ -37,14 +37,14 @@ class QuranDetailsView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(data.name),
-                  SizedBox(
+                  Text(" سورة ${data.name}"),
+                  const SizedBox(
                     width: 10,
                   ),
-                  Icon(Icons.play_circle_fill_rounded)
+                  const Icon(Icons.play_circle_fill_rounded)
                 ],
               ),
-              Divider(
+              const Divider(
                 height: 10,
               )
             ],
