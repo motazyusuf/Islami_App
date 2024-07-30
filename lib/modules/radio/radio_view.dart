@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../layouts/layout_view.dart';
-
 class RadioView extends StatelessWidget {
   static const String routeName = "radio";
 
@@ -9,11 +7,6 @@ class RadioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "This is $routeName",
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-    );
+    return Center(child: Image.asset("assets/images/RadioViewImage.png"));
   }
 }

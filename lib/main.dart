@@ -5,6 +5,7 @@ import 'package:islami_app/modules/quran/quran_view.dart';
 import 'package:islami_app/modules/settings/settings_view.dart';
 import 'package:islami_app/modules/splash/splash_view.dart';
 import 'package:islami_app/modules/tasbeh/tasbeh_view.dart';
+
 import 'core/application_theme_manager.dart';
 import 'modules/radio/radio_view.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LayoutView.routeName: (context) => LayoutView(),
         HadethView.routeName: (context) => const HadethView(),
-        QuranView.routeName: (context) => const QuranView(),
+        QuranView.routeName: (context) => QuranView(),
         RadioView.routeName: (context) => const RadioView(),
         SettingsView.routeName: (context) => const SettingsView(),
         SplashView.routeName: (context) => const SplashView(),

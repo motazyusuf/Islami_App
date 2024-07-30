@@ -1,9 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/modules/quran/widgets/sura_title_widget.dart';
 
 class QuranView extends StatelessWidget {
   static const String routeName = "quran";
+  List<String> suraName = [
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura",
+    "Sura"
+  ];
 
-  const QuranView({super.key});
+  QuranView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,32 +46,22 @@ class QuranView extends StatelessWidget {
               color: Theme.of(context).dividerTheme.color,
               thickness: 3,
             ),
-            IntrinsicHeight(
-              child: Row(
-                children: [
-                  const Expanded(
-                      child: Text(
-                    "رقم السورة",
-                    textAlign: TextAlign.center,
-                  )),
-                  VerticalDivider(
-                    thickness: 3,
-                    color: Theme.of(context).dividerTheme.color,
-                  ),
-                  const Expanded(
-                      child: Text(
-                    "اسم السورة",
-                    textAlign: TextAlign.center,
-                  )),
-                ],
-              ),
+            SuraTitleWidget(
+              name: "اسم السورة",
+              number: "رقم السورة",
             ),
             Divider(
               color: Theme.of(context).dividerTheme.color,
               thickness: 3,
-            )
+            ),
           ],
         ),
+        Expanded(
+          child: ListView.builder(
+              itemCount: suraName.length,
+              itemBuilder: (context, index) => SuraTitleWidget(
+                  name: suraName[index], number: "${index + 1}")),
+        )
       ],
     );
   }
