@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islami_app/layouts/layout_view.dart';
 import 'package:islami_app/modules/hadeth/hadeth_view.dart';
 import 'package:islami_app/modules/quran/quran_view.dart';
@@ -20,20 +21,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ApplicationThemeManager.lightModeThemeData,
-      debugShowCheckedModeBanner: false,
-      initialRoute: SplashView.routeName,
-      routes: {
-        LayoutView.routeName: (context) => LayoutView(),
-        HadethView.routeName: (context) => const HadethView(),
-        QuranView.routeName: (context) => QuranView(),
-        RadioView.routeName: (context) => const RadioView(),
-        SettingsView.routeName: (context) => const SettingsView(),
-        SplashView.routeName: (context) => const SplashView(),
-        TasbehView.routeName: (context) => const TasbehView(),
-        QuranDetailsView.routeName: (context) => const QuranDetailsView(),
-      },
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+          systemNavigationBarColor: Color.fromRGBO(183, 147, 95, 1)),
+      child: MaterialApp(
+        theme: ApplicationThemeManager.lightModeThemeData,
+        debugShowCheckedModeBanner: false,
+        initialRoute: SplashView.routeName,
+        routes: {
+          LayoutView.routeName: (context) => LayoutView(),
+          HadethView.routeName: (context) => const HadethView(),
+          QuranView.routeName: (context) => QuranView(),
+          RadioView.routeName: (context) => const RadioView(),
+          SettingsView.routeName: (context) => const SettingsView(),
+          SplashView.routeName: (context) => const SplashView(),
+          TasbehView.routeName: (context) => const TasbehView(),
+          QuranDetailsView.routeName: (context) => const QuranDetailsView(),
+        },
+      ),
     );
   }
 }
