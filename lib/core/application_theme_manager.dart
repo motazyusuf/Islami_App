@@ -43,7 +43,8 @@ class ApplicationThemeManager {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Color.fromRGBO(183, 147, 95, 1),
     ),
-  );
+      dividerTheme:
+          const DividerThemeData(color: Color.fromRGBO(183, 147, 95, 1)));
 
   static ThemeData darkModeThemeData = ThemeData(
     textTheme: const TextTheme(
@@ -90,8 +91,3 @@ class ApplicationThemeManager {
   );
 }
 
-// titleTextStyle: TextStyle(
-// fontFamily: 'El Messiri',
-// color: Colors.black,
-// fontSize: 30,
-// fontWeight: FontWeight.bold)
