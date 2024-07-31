@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/layouts/detailes_views_layout.dart';
 
 class HadethDetailsView extends StatelessWidget {
   HadethDetailsView({super.key});
@@ -7,6 +8,19 @@ class HadethDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return DetailesViewsLayout(
+        child: const Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("حديث رقم"),
+          ],
+        ),
+        Divider(
+          height: 10,
+        ),
+      ],
+    ));
   }
 }
