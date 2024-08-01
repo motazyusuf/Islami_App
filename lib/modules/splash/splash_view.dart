@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../layouts/layout_view.dart';
 
@@ -24,9 +25,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      "assets/images/splash.png",
-      fit: BoxFit.cover,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+          systemNavigationBarColor: Color.fromRGBO(213, 211, 211, 1)),
+      child: Image.asset(
+        "assets/images/splash.png",
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

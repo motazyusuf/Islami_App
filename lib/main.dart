@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/layouts/layout_view.dart';
 import 'package:islami_app/modules/hadeth/hadeth_view.dart';
+import 'package:islami_app/modules/hadeth/widgets/hadeth_details_view.dart';
 import 'package:islami_app/modules/quran/quran_view.dart';
 import 'package:islami_app/modules/quran/widgets/quran_details_view.dart';
 import 'package:islami_app/modules/settings/settings_view.dart';
@@ -30,13 +31,14 @@ class MyApp extends StatelessWidget {
         initialRoute: SplashView.routeName,
         routes: {
           LayoutView.routeName: (context) => LayoutView(),
-          HadethView.routeName: (context) => const HadethView(),
+          HadethView.routeName: (context) => HadethView(),
           QuranView.routeName: (context) => QuranView(),
           RadioView.routeName: (context) => const RadioView(),
           SettingsView.routeName: (context) => const SettingsView(),
           SplashView.routeName: (context) => const SplashView(),
           TasbehView.routeName: (context) => const TasbehView(),
           QuranDetailsView.routeName: (context) => const QuranDetailsView(),
+          HadethDetailsView.routeName: (context) => HadethDetailsView(),
         },
       ),
     );
