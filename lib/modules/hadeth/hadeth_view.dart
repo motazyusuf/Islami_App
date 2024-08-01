@@ -24,20 +24,21 @@ class _HadethViewState extends State<HadethView> {
         ),
         const AhadethTitle(),
         Expanded(
+            child: ListView.builder(
+          itemBuilder: (context, index) => Container(
+            padding: EdgeInsetsDirectional.only(top: 5),
             child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, HadethDetailsView.routeName);
-          },
-          child: ListView.builder(
-            itemBuilder: (context, index) => Container(
-              padding: EdgeInsetsDirectional.only(top: 5),
+              onTap: () {
+                Navigator.pushNamed(context, HadethDetailsView.routeName,
+                    arguments: ahadithFinalList[index]);
+              },
               child: Text(
                 "${ahadithFinalList[index].title}",
                 textAlign: TextAlign.center,
               ),
             ),
-            itemCount: ahadithFinalList.length,
           ),
+          itemCount: ahadithFinalList.length,
         ))
       ],
     );

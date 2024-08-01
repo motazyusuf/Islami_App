@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/layouts/detailes_views_layout.dart';
 
+import '../hadeth_view.dart';
+
 class HadethDetailsView extends StatefulWidget {
   HadethDetailsView({super.key});
 
@@ -13,20 +15,33 @@ class HadethDetailsView extends StatefulWidget {
 class _HadethDetailsViewState extends State<HadethDetailsView> {
   @override
   Widget build(BuildContext context) {
-    var data = ModalRoute.of(context)?.settings.arguments as Text;
+    var data = ModalRoute.of(context)?.settings.arguments as Hadith;
+    List<String> hadithBody = data.body.split("\n");
 
     return DetailesViewsLayout(
-        child: const Column(
+        child: Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("حديث رقم"),
+            Text(data.title),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
         ),
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                hadithBody[index],
+                textAlign: TextAlign.center,
+              ),
+            ),
+            itemCount: hadithBody.length,
+          ),
+        )
       ],
     ));
   }
