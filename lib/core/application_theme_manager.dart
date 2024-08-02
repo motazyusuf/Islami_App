@@ -29,8 +29,9 @@ class ApplicationThemeManager {
           fontSize: 12,
           fontWeight: FontWeight.w400),
     ),
-    appBarTheme: const AppBarTheme(
-      centerTitle: true,
+      appBarTheme: const AppBarTheme(
+        iconTheme: IconThemeData(color: Colors.black),
+        centerTitle: true,
       color: Colors.transparent,
     ),
     scaffoldBackgroundColor: Colors.transparent,
@@ -75,6 +76,7 @@ class ApplicationThemeManager {
           fontWeight: FontWeight.w400),
     ),
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: Colors.white),
       centerTitle: true,
       color: Colors.transparent,
     ),

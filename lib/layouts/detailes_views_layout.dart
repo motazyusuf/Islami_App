@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../core/settings_provider.dart';
 
 class DetailesViewsLayout extends StatelessWidget {
   DetailesViewsLayout({super.key, required this.child});
@@ -10,22 +13,20 @@ class DetailesViewsLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var localization = AppLocalizations.of(context);
-    var darkNavigationColor = Color.fromRGBO(9, 13, 25, 1);
-    var lightNavigationColor = Color.fromRGBO(213, 211, 211, 1);
-
+    var provider = Provider.of<SettingsProvider>(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value:
-          SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
+      value: SystemUiOverlayStyle(
+          systemNavigationBarColor:
+              provider.currentSystemNavigationColorForBackground),
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage("assets/images/IslamiBackground_dark.png"),
+            image: AssetImage(provider.currentBackgroundPath),
           ),
         ),
         child: Scaffold(
           appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.white),
             title: Text(localization!.islami,
                 style: Theme.of(context).textTheme.titleLarge),
           ),
@@ -36,7 +37,7 @@ class DetailesViewsLayout extends StatelessWidget {
                 top: 10, start: 20, end: 20, bottom: 80),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: const Color.fromRGBO(20, 26, 46, 0.8),
+              color: provider.currentContainersBackgroundColor,
             ),
             width: 354,
             height: 652,

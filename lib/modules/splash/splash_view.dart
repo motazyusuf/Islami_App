@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/core/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../layouts/layout_view.dart';
 
@@ -25,11 +27,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-          systemNavigationBarColor: Color.fromRGBO(213, 211, 211, 1)),
+          systemNavigationBarColor:
+              provider.currentSystemNavigationColorForBackground),
       child: Image.asset(
-        "assets/images/splash.png",
+        "assets/images/splash_dark.png",
         fit: BoxFit.cover,
       ),
     );
