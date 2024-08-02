@@ -27,7 +27,9 @@ class SettingsComponent extends StatelessWidget {
             height: 10,
           ),
           CustomDropdown<String>(
-              hintText: 'Select job role',
+              decoration: const CustomDropdownDecoration(
+                  closedFillColor: Color.fromRGBO(20, 26, 46, 1),
+                  expandedFillColor: Color.fromRGBO(20, 26, 46, 1)),
               items: options,
               initialItem: options[0],
               onChanged: (value) {

@@ -65,7 +65,7 @@ class ApplicationThemeManager {
           fontWeight: FontWeight.w400),
       bodySmall: TextStyle(
           fontFamily: 'El Messiri',
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 20,
           fontWeight: FontWeight.w400),
       labelSmall: TextStyle(
