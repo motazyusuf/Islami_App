@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
+      value: const SystemUiOverlayStyle(
           systemNavigationBarColor: Color.fromRGBO(183, 147, 95, 1)),
       child: MaterialApp(
         locale: Locale("en"),

@@ -43,19 +43,20 @@ class _LayoutViewState extends State<LayoutView> {
             },
             items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/radio.png")),
+                  icon: const ImageIcon(AssetImage("assets/icons/radio.png")),
                   label: AppLocalizations.of(context)!.radio),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/sebha.png")),
+                  icon: const ImageIcon(AssetImage("assets/icons/sebha.png")),
                   label: AppLocalizations.of(context)!.tasbeh),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/hadeth.png")),
+                  icon: const ImageIcon(AssetImage("assets/icons/hadeth.png")),
                   label: AppLocalizations.of(context)!.hadeth),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/quran.png")),
+                  icon: const ImageIcon(AssetImage("assets/icons/quran.png")),
                   label: AppLocalizations.of(context)!.quran),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings_suggest_rounded), label: "Settings")
+                  icon: const Icon(Icons.settings_suggest_rounded),
+                  label: AppLocalizations.of(context)!.settings)
             ]),
       ),
     );
