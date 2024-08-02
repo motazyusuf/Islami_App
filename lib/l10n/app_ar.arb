@@ -4,5 +4,11 @@
 "radio": "راديو",
 "tasbeh": "تسبيح",
 "hadeth": "حديث",
-"settings": "اعدادات"
+"settings": "اعدادات",
+"language": "اللغة",
+"mode": "الوضع",
+"dark": "داكن",
+"light": "مضيئ",
+"english": "الانجليزية",
+"arabic": "العربية"
 }

@@ -25,6 +25,7 @@ class _LayoutViewState extends State<LayoutView> {
 
   @override
   Widget build(BuildContext context) {
+    var localization = AppLocalizations.of(context);
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -32,7 +33,7 @@ class _LayoutViewState extends State<LayoutView> {
               image: AssetImage("assets/images/IslamiBackground.png"))),
       child: Scaffold(
         appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.islami,
+            title: Text(localization!.islami,
                 style: Theme.of(context).textTheme.titleLarge)),
         body: views[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -44,19 +45,19 @@ class _LayoutViewState extends State<LayoutView> {
             items: [
               BottomNavigationBarItem(
                   icon: const ImageIcon(AssetImage("assets/icons/radio.png")),
-                  label: AppLocalizations.of(context)!.radio),
+                  label: localization!.radio),
               BottomNavigationBarItem(
                   icon: const ImageIcon(AssetImage("assets/icons/sebha.png")),
-                  label: AppLocalizations.of(context)!.tasbeh),
+                  label: localization!.tasbeh),
               BottomNavigationBarItem(
                   icon: const ImageIcon(AssetImage("assets/icons/hadeth.png")),
-                  label: AppLocalizations.of(context)!.hadeth),
+                  label: localization!.hadeth),
               BottomNavigationBarItem(
                   icon: const ImageIcon(AssetImage("assets/icons/quran.png")),
-                  label: AppLocalizations.of(context)!.quran),
+                  label: localization!.quran),
               BottomNavigationBarItem(
                   icon: const Icon(Icons.settings_suggest_rounded),
-                  label: AppLocalizations.of(context)!.settings)
+                  label: localization!.settings)
             ]),
       ),
     );
