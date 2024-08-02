@@ -9,12 +9,15 @@ import 'package:islami_app/modules/quran/widgets/quran_details_view.dart';
 import 'package:islami_app/modules/settings/settings_view.dart';
 import 'package:islami_app/modules/splash/splash_view.dart';
 import 'package:islami_app/modules/tasbeh/tasbeh_view.dart';
+import 'package:provider/provider.dart';
 
 import 'core/application_theme_manager.dart';
+import 'core/settings_provider.dart';
 import 'modules/radio/radio_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => SettingsProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,13 +28,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var darkNavigationColor = Color.fromRGBO(20, 26, 46, 1);
     var lightNavigationColor = Color.fromRGBO(183, 147, 95, 1);
+    var provider = Provider.of<SettingsProvider>(context);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value:
           SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
       child: MaterialApp(
         themeMode: ThemeMode.dark,
-        locale: Locale("en"),
+        locale: Locale(provider.currentLanguage),
         title: 'Localizations Sample App',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,

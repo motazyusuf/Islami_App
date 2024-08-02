@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SettingsComponent extends StatelessWidget {
   SettingsComponent(
@@ -13,6 +15,7 @@ class SettingsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
+    var provider = Provider.of<SettingsProvider>(context);
 
     return Padding(
       padding: EdgeInsets.only(top: height / 8, left: 15, right: 15),
@@ -31,8 +34,13 @@ class SettingsComponent extends StatelessWidget {
                   closedFillColor: Color.fromRGBO(20, 26, 46, 1),
                   expandedFillColor: Color.fromRGBO(20, 26, 46, 1)),
               items: options,
-              initialItem: options[0],
+              initialItem:
+                  provider.currentLanguage == "ar" ? options[1] : options[0],
               onChanged: (value) {
+                if (value == "الانجليزية" || value == "English")
+                  provider.changeLanguage("en");
+                else if (value == "العربية" || value == "Arabic")
+                  provider.changeLanguage("ar");
                 log('changing value to: $value');
               })
         ],
