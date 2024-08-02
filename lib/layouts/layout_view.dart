@@ -30,7 +30,7 @@ class _LayoutViewState extends State<LayoutView> {
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage("assets/images/IslamiBackground.png"))),
+              image: AssetImage("assets/images/IslamiBackground_dark.png"))),
       child: Scaffold(
         appBar: AppBar(
             title: Text(localization!.islami,
