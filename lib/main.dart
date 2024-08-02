@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/layouts/layout_view.dart';
 import 'package:islami_app/modules/hadeth/hadeth_view.dart';
 import 'package:islami_app/modules/hadeth/widgets/hadeth_details_view.dart';
@@ -26,6 +27,10 @@ class MyApp extends StatelessWidget {
       value: SystemUiOverlayStyle(
           systemNavigationBarColor: Color.fromRGBO(183, 147, 95, 1)),
       child: MaterialApp(
+        locale: Locale("en"),
+        title: 'Localizations Sample App',
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         theme: ApplicationThemeManager.lightModeThemeData,
         debugShowCheckedModeBanner: false,
         initialRoute: SplashView.routeName,
