@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/modules/hadeth/hadeth_view.dart';
 import 'package:islami_app/modules/quran/quran_view.dart';
 import 'package:islami_app/modules/radio/radio_view.dart';
@@ -24,15 +25,16 @@ class _LayoutViewState extends State<LayoutView> {
 
   @override
   Widget build(BuildContext context) {
+    var localization = AppLocalizations.of(context);
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage("assets/images/IslamiBackground.png"))),
+              image: AssetImage("assets/images/IslamiBackground_dark.png"))),
       child: Scaffold(
         appBar: AppBar(
-            title:
-                Text("اسلامي", style: Theme.of(context).textTheme.titleLarge)),
+            title: Text(localization!.islami,
+                style: Theme.of(context).textTheme.titleLarge)),
         body: views[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedIndex,
@@ -40,21 +42,22 @@ class _LayoutViewState extends State<LayoutView> {
               selectedIndex = index;
               setState(() {});
             },
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/radio.png")),
-                  label: "Radio"),
+                  icon: const ImageIcon(AssetImage("assets/icons/radio.png")),
+                  label: localization!.radio),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/sebha.png")),
-                  label: "Sebeha"),
+                  icon: const ImageIcon(AssetImage("assets/icons/sebha.png")),
+                  label: localization!.tasbeh),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/hadeth.png")),
-                  label: "Hadeth"),
+                  icon: const ImageIcon(AssetImage("assets/icons/hadeth.png")),
+                  label: localization!.hadeth),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/quran.png")),
-                  label: "Quran"),
+                  icon: const ImageIcon(AssetImage("assets/icons/quran.png")),
+                  label: localization!.quran),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings_suggest_rounded), label: "Settings")
+                  icon: const Icon(Icons.settings_suggest_rounded),
+                  label: localization!.settings)
             ]),
       ),
     );

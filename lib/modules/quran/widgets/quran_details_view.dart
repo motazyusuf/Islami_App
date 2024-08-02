@@ -29,7 +29,10 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
             const SizedBox(
               width: 10,
             ),
-            const Icon(Icons.play_circle_fill_rounded)
+            const Icon(
+              Icons.play_circle_fill_rounded,
+              color: Color.fromRGBO(250, 204, 29, 1),
+            )
           ],
         ),
         const Divider(
