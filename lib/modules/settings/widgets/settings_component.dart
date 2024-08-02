@@ -21,7 +21,6 @@ class _SettingsComponentState extends State<SettingsComponent> {
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
     var provider = Provider.of<SettingsProvider>(context);
-    var color = Color.fromRGBO(20, 26, 46, 1);
 
     return Padding(
       padding: EdgeInsets.only(top: height / 8, left: 15, right: 15),
@@ -37,7 +36,8 @@ class _SettingsComponentState extends State<SettingsComponent> {
           ),
           CustomDropdown<String>(
               decoration: CustomDropdownDecoration(
-                  closedFillColor: color, expandedFillColor: color),
+                  closedFillColor: provider.currentContainersBackgroundColor,
+                  expandedFillColor: provider.currentContainersBackgroundColor),
               items: widget.options,
               initialItem: widget.optionsName == "Language" ||
                       widget.optionsName == "اللغة"
@@ -48,19 +48,29 @@ class _SettingsComponentState extends State<SettingsComponent> {
                       ? widget.options[1]
                       : widget.options[0],
               onChanged: (value) {
-                if (value == "الانجليزية" || value == "English")
+                if (value == "الانجليزية" || value == "English") {
                   provider.changeLanguage("en");
-                else if (value == "العربية" || value == "Arabic")
+                } else if (value == "العربية" || value == "Arabic") {
                   provider.changeLanguage("ar");
-
+                }
                 if (value == "داكن" || value == "Dark") {
                   provider.changeMode(ThemeMode.dark);
                   provider.changeBackground(
                       "assets/images/IslamiBackground_dark.png");
+                  provider.changeSystemNavigationColor(
+                      const Color.fromRGBO(9, 13, 25, 1),
+                      const Color.fromRGBO(20, 26, 46, 1));
+                  provider.changeContainerBackgroundColor(
+                      const Color.fromRGBO(20, 26, 46, 0.8));
                 } else if (value == "مضيئ" || value == "Light") {
                   provider.changeMode(ThemeMode.light);
                   provider
                       .changeBackground("assets/images/IslamiBackground.png");
+                  provider.changeSystemNavigationColor(
+                      const Color.fromRGBO(213, 211, 211, 1),
+                      const Color.fromRGBO(183, 147, 95, 1));
+                  provider.changeContainerBackgroundColor(
+                      const Color.fromRGBO(248, 248, 248, 0.8));
                 }
 
                 log('changing value to: $value');

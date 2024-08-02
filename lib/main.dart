@@ -26,13 +26,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var darkNavigationColor = Color.fromRGBO(20, 26, 46, 1);
-    var lightNavigationColor = Color.fromRGBO(183, 147, 95, 1);
     var provider = Provider.of<SettingsProvider>(context);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value:
-          SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
+      value: SystemUiOverlayStyle(
+          systemNavigationBarColor:
+              provider.currentSystemNavigationColorForNavigationBar),
       child: MaterialApp(
         themeMode: provider.currentMode,
         locale: Locale(provider.currentLanguage),

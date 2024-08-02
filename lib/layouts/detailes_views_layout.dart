@@ -13,12 +13,11 @@ class DetailesViewsLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var localization = AppLocalizations.of(context);
-    var darkNavigationColor = Color.fromRGBO(9, 13, 25, 1);
-    var lightNavigationColor = Color.fromRGBO(213, 211, 211, 1);
     var provider = Provider.of<SettingsProvider>(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value:
-          SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
+      value: SystemUiOverlayStyle(
+          systemNavigationBarColor:
+              provider.currentSystemNavigationColorForBackground),
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -28,7 +27,6 @@ class DetailesViewsLayout extends StatelessWidget {
         ),
         child: Scaffold(
           appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.white),
             title: Text(localization!.islami,
                 style: Theme.of(context).textTheme.titleLarge),
           ),
@@ -39,7 +37,7 @@ class DetailesViewsLayout extends StatelessWidget {
                 top: 10, start: 20, end: 20, bottom: 80),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: const Color.fromRGBO(20, 26, 46, 0.8),
+              color: provider.currentContainersBackgroundColor,
             ),
             width: 354,
             height: 652,
