@@ -34,8 +34,11 @@ class SettingsComponent extends StatelessWidget {
                   closedFillColor: Color.fromRGBO(20, 26, 46, 1),
                   expandedFillColor: Color.fromRGBO(20, 26, 46, 1)),
               items: options,
-              initialItem:
-                  provider.currentLanguage == "ar" ? options[1] : options[0],
+              initialItem: optionsName == "Language" || optionsName == "اللغة"
+                  ? provider.currentLanguage == "ar"
+                      ? options[1]
+                      : options[0]
+                  : options[1],
               onChanged: (value) {
                 if (value == "الانجليزية" || value == "English")
                   provider.changeLanguage("en");
