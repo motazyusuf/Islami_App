@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../core/settings_provider.dart';
 
 class DetailesViewsLayout extends StatelessWidget {
   DetailesViewsLayout({super.key, required this.child});
@@ -12,15 +15,15 @@ class DetailesViewsLayout extends StatelessWidget {
     var localization = AppLocalizations.of(context);
     var darkNavigationColor = Color.fromRGBO(9, 13, 25, 1);
     var lightNavigationColor = Color.fromRGBO(213, 211, 211, 1);
-
+    var provider = Provider.of<SettingsProvider>(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value:
           SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage("assets/images/IslamiBackground_dark.png"),
+            image: AssetImage(provider.currentBackgroundPath),
           ),
         ),
         child: Scaffold(

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       value:
           SystemUiOverlayStyle(systemNavigationBarColor: darkNavigationColor),
       child: MaterialApp(
-        themeMode: ThemeMode.dark,
+        themeMode: provider.currentMode,
         locale: Locale(provider.currentLanguage),
         title: 'Localizations Sample App',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
