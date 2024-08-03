@@ -53,6 +53,7 @@ class _SettingsComponentState extends State<SettingsComponent> {
                 } else if (value == "العربية" || value == "Arabic") {
                   provider.changeLanguage("ar");
                 }
+
                 if (value == "داكن" || value == "Dark") {
                   provider.changeMode(ThemeMode.dark);
                   provider.changeBackground(
@@ -62,6 +63,8 @@ class _SettingsComponentState extends State<SettingsComponent> {
                       const Color.fromRGBO(20, 26, 46, 1));
                   provider.changeContainerBackgroundColor(
                       const Color.fromRGBO(20, 26, 46, 0.8));
+                  provider.changeQuranHadithTextColor(
+                      const Color.fromRGBO(250, 204, 29, 1));
                 } else if (value == "مضيئ" || value == "Light") {
                   provider.changeMode(ThemeMode.light);
                   provider
@@ -71,6 +74,7 @@ class _SettingsComponentState extends State<SettingsComponent> {
                       const Color.fromRGBO(183, 147, 95, 1));
                   provider.changeContainerBackgroundColor(
                       const Color.fromRGBO(248, 248, 248, 0.8));
+                  provider.changeQuranHadithTextColor(Colors.white);
                 }
 
                 log('changing value to: $value');

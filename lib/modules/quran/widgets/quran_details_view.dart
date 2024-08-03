@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/layouts/detailes_views_layout.dart';
 import 'package:islami_app/modules/quran/widgets/sura_title_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../../../core/settings_provider.dart';
 
 class QuranDetailsView extends StatefulWidget {
   const QuranDetailsView({super.key});
@@ -16,6 +19,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
   @override
   Widget build(BuildContext context) {
     var data = ModalRoute.of(context)?.settings.arguments as SuraTitleWidget;
+    var provider = Provider.of<SettingsProvider>(context);
 
     if (content.isEmpty) loadData(data.number);
 
@@ -42,8 +46,8 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
           child: ListView.builder(
             itemBuilder: (context, index) => Text(
               "(${index + 1}) ${versesList[index]} ",
-              style:
-                  Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.8),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  height: 1.8, color: provider.currentQuranHadithTextColor),
               textAlign: TextAlign.center,
             ),
             itemCount: versesList.length,
