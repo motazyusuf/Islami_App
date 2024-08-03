@@ -44,6 +44,7 @@ class ApplicationThemeManager {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Color.fromRGBO(183, 147, 95, 1),
     ),
+      primaryColor: Colors.black,
       dividerTheme:
           const DividerThemeData(color: Color.fromRGBO(183, 147, 95, 1)));
 
@@ -91,6 +92,7 @@ class ApplicationThemeManager {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Color.fromRGBO(20, 26, 46, 1),
     ),
+    primaryColor: Color.fromRGBO(250, 204, 29, 1),
     dividerTheme: DividerThemeData(color: Color.fromRGBO(250, 204, 29, 1)),
   );
 }

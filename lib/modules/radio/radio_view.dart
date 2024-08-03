@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioView extends StatefulWidget {
   static const String routeName = "radio";
@@ -14,18 +15,20 @@ class _RadioViewState extends State<RadioView> {
   bool isPressed = false;
   final player = AudioPlayer();
 
-  List<String> radioChannelsLink = [
-    "https://stream-162.zeno.fm/ru2hqnplhk7uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJydTJocW5wbGhrN3V2IiwiaG9zdCI6InN0cmVhbS0xNjIuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IlFSSFE2cDB1U2RTdUtNeUo3VmZIU2ciLCJpYXQiOjE3MjI2OTk0ODAsImV4cCI6MTcyMjY5OTU0MH0.ueNEnE07Ig2fO3zqebTlSL7E9WeB4E3x1PmR_tiMoH4",
-    "https://3vh.liveradiu.com:8000/el-shaarawy.mp3",
-  ];
-  List<String> radioChannelsNames = [
-    "اذاعة القرآن الكريم",
-    "اذاعة الشيخ الشعراوي",
-  ];
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
+    var localization = AppLocalizations.of(context);
+    List<String> radioChannelsLink = [
+      "https://stream-162.zeno.fm/ru2hqnplhk7uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJydTJocW5wbGhrN3V2IiwiaG9zdCI6InN0cmVhbS0xNjIuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IlFSSFE2cDB1U2RTdUtNeUo3VmZIU2ciLCJpYXQiOjE3MjI2OTk0ODAsImV4cCI6MTcyMjY5OTU0MH0.ueNEnE07Ig2fO3zqebTlSL7E9WeB4E3x1PmR_tiMoH4",
+      "https://3vh.liveradiu.com:8000/el-shaarawy.mp3",
+    ];
+    List<String> radioChannelsNames = [
+      localization!.quranradio,
+      localization!.shaarawyradio
+    ];
+
     String currentChannelName = radioChannelsNames[index];
     String currentChannelLink = radioChannelsLink[index];
     return Column(
@@ -42,10 +45,15 @@ class _RadioViewState extends State<RadioView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // next
+
             IconButton(
-              color: Color.fromRGBO(250, 204, 29, 1),
+              color: Theme.of(context).primaryColor,
               iconSize: 60,
-              icon: const Icon(Icons.skip_next),
+              icon: localization.radio == "radio"
+                  ? Icon(Icons.skip_next)
+                  : localization.radio == "راديو"
+                      ? Icon(Icons.skip_next)
+                      : Icon(Icons.skip_previous),
               onPressed: () async {
                 if (index == 1)
                   index = 0;
@@ -59,9 +67,10 @@ class _RadioViewState extends State<RadioView> {
                 setState(() {});
               },
             ),
+
             // play
             IconButton(
-              color: Color.fromRGBO(250, 204, 29, 1),
+              color: Theme.of(context).primaryColor,
               iconSize: 100,
               icon: isPressed
                   ? const Icon(Icons.pause)
@@ -78,11 +87,16 @@ class _RadioViewState extends State<RadioView> {
                 setState(() {});
               },
             ),
+
             // previous
             IconButton(
-              color: Color.fromRGBO(250, 204, 29, 1),
+              color: Theme.of(context).primaryColor,
               iconSize: 60,
-              icon: const Icon(Icons.skip_previous),
+              icon: localization.radio == "radio"
+                  ? Icon(Icons.skip_previous)
+                  : localization.radio == "راديو"
+                      ? Icon(Icons.skip_previous)
+                      : Icon(Icons.skip_next),
               onPressed: () async {
                 if (index == 0)
                   index = 1;
