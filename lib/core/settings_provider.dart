@@ -11,6 +11,7 @@ class SettingsProvider extends ChangeNotifier {
   String currentSplashPath = "assets/images/splash_dark.png";
   Color currentContainersBackgroundColor =
       const Color.fromRGBO(20, 26, 46, 0.8);
+  Color currentQuranHadithTextColor = Color.fromRGBO(250, 204, 29, 1);
 
   // dark background Navigation Color.fromRGBO(9, 13, 25, 1);
   // light background Navigation  Color.fromRGBO(213, 211, 211, 1)
@@ -43,9 +44,16 @@ class SettingsProvider extends ChangeNotifier {
 
   void changeSplash() {
     currentSplashPath = "assets/images/splash.png";
+    notifyListeners();
   }
 
   void changeContainerBackgroundColor(Color newContainersBackgroundColor) {
     currentContainersBackgroundColor = newContainersBackgroundColor;
+    notifyListeners();
+  }
+
+  void changeQuranHadithTextColor(Color newQuranHadithTextColor) {
+    currentQuranHadithTextColor = newQuranHadithTextColor;
+    notifyListeners();
   }
 }
