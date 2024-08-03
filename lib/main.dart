@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           LayoutView.routeName: (context) => LayoutView(),
           HadethView.routeName: (context) => HadethView(),
           QuranView.routeName: (context) => QuranView(),
-          RadioView.routeName: (context) => const RadioView(),
+          RadioView.routeName: (context) => RadioView(),
           SettingsView.routeName: (context) => const SettingsView(),
           SplashView.routeName: (context) => const SplashView(),
           TasbehView.routeName: (context) => const TasbehView(),
