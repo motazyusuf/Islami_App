@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class RadioView extends StatefulWidget {
@@ -11,6 +12,7 @@ class RadioView extends StatefulWidget {
 
 class _RadioViewState extends State<RadioView> {
   bool isPressed = false;
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,12 @@ class _RadioViewState extends State<RadioView> {
                   ? const Icon(Icons.pause)
                   : const Icon(Icons.play_arrow),
               onPressed: () async {
+                if (!isPressed) {
+                  await player.play(UrlSource(
+                      "https://n09.radiojar.com/8s5u5tpdtwzuv?rj-ttl=5&rj-tok=AAABkRitlmwAA7wcmMrZVaDRnw"));
+                } else {
+                  await player.pause();
+                }
                 isPressed = !isPressed;
                 setState(() {});
               },
