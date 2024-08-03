@@ -8,7 +8,12 @@ class ApplicationThemeManager {
           color: Colors.black,
           fontSize: 30,
           fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(
+        titleMedium: TextStyle(
+            fontFamily: 'El Messiri',
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.w600),
+        bodyLarge: TextStyle(
           fontFamily: 'El Messiri',
           color: Colors.black,
           fontSize: 25,
@@ -44,7 +49,8 @@ class ApplicationThemeManager {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Color.fromRGBO(183, 147, 95, 1),
     ),
-      primaryColor: Colors.black,
+      primaryColor: Color.fromRGBO(183, 147, 95, 1),
+      primaryColorDark: Color.fromRGBO(201, 180, 150, 1),
       dividerTheme:
           const DividerThemeData(color: Color.fromRGBO(183, 147, 95, 1)));
 
@@ -55,6 +61,11 @@ class ApplicationThemeManager {
           color: Colors.white,
           fontSize: 30,
           fontWeight: FontWeight.bold),
+      titleMedium: TextStyle(
+          fontFamily: 'El Messiri',
+          color: Color.fromRGBO(20, 26, 46, 1),
+          fontSize: 25,
+          fontWeight: FontWeight.w600),
       bodyLarge: TextStyle(
           fontFamily: 'El Messiri',
           color: Colors.white,
@@ -93,6 +104,7 @@ class ApplicationThemeManager {
       backgroundColor: Color.fromRGBO(20, 26, 46, 1),
     ),
     primaryColor: Color.fromRGBO(250, 204, 29, 1),
+    primaryColorDark: Color.fromRGBO(20, 26, 46, 1),
     dividerTheme: DividerThemeData(color: Color.fromRGBO(250, 204, 29, 1)),
   );
 }

@@ -12,6 +12,8 @@ class SettingsProvider extends ChangeNotifier {
   Color currentContainersBackgroundColor =
       const Color.fromRGBO(20, 26, 46, 0.8);
   Color currentQuranHadithTextColor = Color.fromRGBO(250, 204, 29, 1);
+  String currentSebhaHead = "assets/images/sebhaHeadDark.png";
+  String currentSebhaBody = "assets/images/sebhaBodyDark.png";
 
   // dark background Navigation Color.fromRGBO(9, 13, 25, 1);
   // light background Navigation  Color.fromRGBO(213, 211, 211, 1)
@@ -54,6 +56,12 @@ class SettingsProvider extends ChangeNotifier {
 
   void changeQuranHadithTextColor(Color newQuranHadithTextColor) {
     currentQuranHadithTextColor = newQuranHadithTextColor;
+    notifyListeners();
+  }
+
+  void changeSebha(String newSebhahead, String newSebhaBody) {
+    currentSebhaHead = newSebhahead;
+    currentSebhaBody = newSebhaBody;
     notifyListeners();
   }
 }

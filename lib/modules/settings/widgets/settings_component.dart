@@ -65,6 +65,8 @@ class _SettingsComponentState extends State<SettingsComponent> {
                       const Color.fromRGBO(20, 26, 46, 0.8));
                   provider.changeQuranHadithTextColor(
                       const Color.fromRGBO(250, 204, 29, 1));
+                  provider.changeSebha("assets/images/sebhaHeadDark.png",
+                      "assets/images/sebhaBodyDark.png");
                 } else if (value == "مضيئ" || value == "Light") {
                   provider.changeMode(ThemeMode.light);
                   provider
@@ -75,6 +77,8 @@ class _SettingsComponentState extends State<SettingsComponent> {
                   provider.changeContainerBackgroundColor(
                       const Color.fromRGBO(248, 248, 248, 0.8));
                   provider.changeQuranHadithTextColor(Colors.white);
+                  provider.changeSebha("assets/images/sebhaheadLight.png",
+                      "assets/images/sebhaBodyLight.png");
                 }
 
                 log('changing value to: $value');
