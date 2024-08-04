@@ -14,6 +14,7 @@ class TasbehView extends StatefulWidget {
 
 int counter = 1;
 int index = 0;
+double rotation = 0.0;
 
 class _TasbehViewState extends State<TasbehView> {
   @override
@@ -49,9 +50,13 @@ class _TasbehViewState extends State<TasbehView> {
                 }
 
                 counter++;
+                rotation += 1 / 30;
                 setState(() {});
               },
-              child: Image.asset(provider.currentSebhaBody)),
+              child: AnimatedRotation(
+                  turns: rotation,
+                  duration: Duration(seconds: 1),
+                  child: Image.asset(provider.currentSebhaBody))),
           const SizedBox(height: 30),
           Text(localization!.tasbehcount),
           const SizedBox(height: 20),
